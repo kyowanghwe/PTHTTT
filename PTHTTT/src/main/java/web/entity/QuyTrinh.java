@@ -18,6 +18,7 @@ public class QuyTrinh {
 	private Long id;
 	
 	private String maymoc;
+	private String ten;
 	
 	@ManyToOne(targetEntity = BoPhan.class)
 	private List<BoPhan> bophans;
