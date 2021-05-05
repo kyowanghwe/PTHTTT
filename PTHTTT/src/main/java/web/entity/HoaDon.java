@@ -1,5 +1,5 @@
 package web.entity;
-
+/*
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,3 +23,5 @@ public class HoaDon {
 	@ManyToOne(targetEntity = NVL.class)
 	private List<NVL> nvls;
 }
+
+*/

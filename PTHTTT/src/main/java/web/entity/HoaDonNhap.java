@@ -19,10 +19,15 @@ public class HoaDonNhap {
 	
 	private String ngayNhap;
 	private int soLuong;
+	private String donvi;
+	private double tongtien;
 	
-	@ManyToOne(targetEntity = HoaDon.class)
-	private List<HoaDon> hoadons;
+//	@ManyToOne(targetEntity = HoaDon.class)
+//	private List<HoaDon> hoadons;
 	
 	@ManyToOne(targetEntity = NhaCungCap.class)
 	private List<NhaCungCap> nhacungcaps;
+	
+	@ManyToOne(targetEntity = NVL.class)
+	private List<NVL> nvls;
 }
