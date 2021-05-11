@@ -3,6 +3,7 @@ package web.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,9 +22,9 @@ public class Banmau {
 	private String mota;
 	private String thanhPhan;
 	
-	@ManyToOne(targetEntity = Nhanvien.class)
+	@ManyToOne(targetEntity = Nhanvien.class, fetch = FetchType.LAZY)
 	private List<Nhanvien> nhanviens;
 	
-	@ManyToOne(targetEntity = Donhang.class)
+	@ManyToOne(targetEntity = Donhang.class, fetch = FetchType.LAZY)
 	private List<Donhang> donhangs;
 }

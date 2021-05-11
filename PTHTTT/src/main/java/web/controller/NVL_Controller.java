@@ -40,13 +40,13 @@ public class NVL_Controller {
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String editCompany(Model model, @PathVariable Long id) {
+	public String editBTP(Model model, @PathVariable Long id) {
 		model.addAttribute("nvl", nvlRepo.findById(id).get());
 		return "formNVL";
 	}
 
 	@GetMapping("/delete/{id}")
-	public String deleteCompany(Model model, @PathVariable Long id) {
+	public String deleteBTP(Model model, @PathVariable Long id) {
 		nvlRepo.deleteById(id);;
 		return "redirect:/nvl/getAll";
 	}
