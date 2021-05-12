@@ -65,12 +65,17 @@ public class BanThanhPham_Controller {
 	
 	@GetMapping("/search")
 	public String searchBTP(@Param("keyword") String keyword, Model model) {
-		// hql with relationship
-		Query q = entitymanager.createQuery("select b from BanThanhPham as b join b.quytrinhs as bq where bq.ten = :x");
-		q.setParameter("x", keyword);
-		
-		List<BanThanhPham> list = (List<BanThanhPham>) q.getResultList();
-		model.addAttribute("btp", list);
+		if(keyword.length()<10) {
+			// hql with relationship
+			Query q = entitymanager.createQuery("select b from BanThanhPham as b join b.quytrinhs as bq where bq.ten = :x");
+			q.setParameter("x", keyword);
+			
+			List<BanThanhPham> list = (List<BanThanhPham>) q.getResultList();
+			model.addAttribute("btp", list);		
+		}else {
+			List<BanThanhPham> list = btpRepo.findAllByNgayBDContaining(keyword);
+			model.addAttribute("btp", list);
+		}
 		
 		return "btp";
 	}
