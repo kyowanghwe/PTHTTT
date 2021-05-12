@@ -1,11 +1,10 @@
 package web.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +17,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.entity.BanThanhPham;
+import web.entity.ThanhPham;
 import web.repo.BanThanhPhamRepository;
-import web.repo.QuyTrinhRepository;
+import web.repo.ThanhPhamRepository;
+
 
 @Controller
 @RequestMapping("/btp")
 public class BanThanhPham_Controller {
 	private final BanThanhPhamRepository btpRepo;
+	private final ThanhPhamRepository tpRepo;
 	
 	@Autowired
 	private EntityManager entitymanager;
 
 	@Autowired
-	public BanThanhPham_Controller(BanThanhPhamRepository btpRepo) {
+	public BanThanhPham_Controller(BanThanhPhamRepository btpRepo, ThanhPhamRepository tpRepo) {
 		this.btpRepo = btpRepo;
+		this.tpRepo = tpRepo;
 	}
 	
 	@GetMapping("/getAll")
@@ -70,6 +73,36 @@ public class BanThanhPham_Controller {
 		model.addAttribute("btp", list);
 		
 		return "btp";
+	}
+	
+	@GetMapping("/confirm/{id}")
+	public String confirm(@PathVariable Long id) {
+		BanThanhPham b = (BanThanhPham) btpRepo.findById(id).get();
+		
+		ThanhPham tp = new ThanhPham();
+		tp = tpRepo.getByTen(b.getName());
+		
+		if(tp == null) {
+			// neu chua co thi` them moi
+			ThanhPham tp2 = new ThanhPham();
+			
+			Date date = new Date();
+			String currentDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+			tp2.setSoluong(b.getSoluong());
+			tp2.setNgayKT(currentDate);
+			tp2.setTen(b.getName());
+			
+			tpRepo.save(tp2);
+		}else {
+			// neu co r update so luong
+			tp.setSoluong(tp.getSoluong() + b.getSoluong());
+			tpRepo.save(tp);
+		}
+		
+		btpRepo.deleteById(id);
+		
+		
+		return "redirect:/btp/getAll";
 	}
 	
 	@PostMapping("/save")

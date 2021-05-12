@@ -210,6 +210,7 @@
                                 <table class="table table-hover" boder="2">
                                     <thead>
                                         <th>Id</th>
+                                        <th>Tên</th>
                                         <th>Mô tả</th>
                                         <th>Ngày Bắt Đầu</th>
                                         <th>Số Lượng</th>
@@ -219,6 +220,7 @@
                                     <tbody>
                                         <tr th:each="item : ${btp}">
                                             <td th:text="${item.id}"></td>
+                                            <td th:text="${item.name}"></td>
                                             <td th:text="${item.mota}"></td>
                                             <td th:text="${item.ngayBD}"></td>
                                             <td th:text="${item.soluong}"></td>
@@ -226,6 +228,7 @@
                                             <td>
                                                 <a th:href="@{/btp/edit/{id}(id=${item.id})}">Sửa</a>
       											<a th:href="@{/btp/delete/{id}(id=${item.id})}">Xóa</a>
+      											<a th:href="@{/btp/confirm/{id}(id=${item.id})}">Hoàn Thành</a>
                                             </td>
                                         </tr>
                                         </c:forEach>

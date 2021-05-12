@@ -22,18 +22,30 @@ public class BanThanhPham {
 	private String mota;
 	private String ngayBD;
 	private int soluong;
+	private String name;
 	
 	
-	public BanThanhPham(Long id, String mota, String ngayBD, int soluong, QuyTrinh quytrinhs) {
+
+
+	public BanThanhPham(Long id, String mota, String ngayBD, int soluong, String name, QuyTrinh quytrinhs) {
 		this.id = id;
 		this.mota = mota;
 		this.ngayBD = ngayBD;
 		this.soluong = soluong;
+		this.name = name;
 		this.quytrinhs = quytrinhs;
 	}
 
 	public BanThanhPham() {
 
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Long getId() {
