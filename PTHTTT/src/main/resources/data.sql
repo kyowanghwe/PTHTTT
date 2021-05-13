@@ -13,7 +13,7 @@ INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `ngaybd`, `soluong`, `quytrinhs_i
 INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `ngaybd`, `soluong`, `quytrinhs_id`, `name`) VALUES ('b', '11-05-2021', '5', '2','quan');
 INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `ngaybd`, `soluong`, `quytrinhs_id`, `name`) VALUES ('c', '12-05-2021', '4', '1', 'ao somi');
 
-INSERT INTO `pthttt`.`thanh_pham` (`ngaykt`, `soluong`) VALUES ('12-05-2021', '4');
+
 INSERT INTO `pthttt`.`thanh_pham` (`gia`, `ngaykt`, `soluong`, `ten`) VALUES ('1000', '12-05-2021', '3', 'quan');
 
 /*
