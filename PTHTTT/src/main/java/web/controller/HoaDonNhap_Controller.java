@@ -23,7 +23,7 @@ public class HoaDonNhap_Controller {
 	@GetMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("hdn", new HoaDonNhap());
-		return "formHDN";
+		return "qlsx/formHDN";
 	}
 	
 	@PostMapping("/save")

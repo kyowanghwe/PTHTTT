@@ -40,20 +40,20 @@ public class BanThanhPham_Controller {
 	@GetMapping("/getAll")
 	public String getAll(Model model) {
 		model.addAttribute("btp", btpRepo.findAll());
-		return "btp";
+		return "qldh/btp";
 	}
 
 
 	@GetMapping("/add")
 	public String addNVL(Model model) {
 		model.addAttribute("btp", new BanThanhPham());
-		return "formBTP";
+		return "qldh/formBTP";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String edit(Model model, @PathVariable Long id) {
 		model.addAttribute("btp", btpRepo.findById(id).get());
-		return "formBTP";
+		return "qldh/formBTP";
 	}
 
 	@GetMapping("/delete/{id}")

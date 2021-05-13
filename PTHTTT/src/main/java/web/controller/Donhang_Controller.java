@@ -28,19 +28,19 @@ public class Donhang_Controller {
 	@GetMapping("/getAll")
 	public String getAll(Model model){
 		model.addAttribute("donhang",donhangRepo.findAll());
-		return "donhang";
+		return "qldh/donhang";
 	}
 	
 	@GetMapping("/add")
 	public String addDonhang(Model model){
 		model.addAttribute("donhang",new Donhang());
-		return "formDonhang";
+		return "qldh/formDonhang";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String editDonhang(Model model, @PathVariable Long id){
 		model.addAttribute("donhang",donhangRepo.findById(id).get());
-		return "formDonhang";
+		return "qldh/formDonhang";
 	}
 	
 	@GetMapping("/delete/{id}")
@@ -53,7 +53,7 @@ public class Donhang_Controller {
 	public String searchDonhang(@Param("keyword") String keyword, Model model) {
 			List<Donhang> list = (List<Donhang>) donhangRepo.findAllByMotaContaining(keyword);
 			model.addAttribute("donhang", list);
-		return "donhang";
+		return "qldh/donhang";
 	}
 	
 	@PostMapping("/save")
