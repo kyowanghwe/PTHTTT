@@ -31,17 +31,17 @@ public class BaoCaoThanhPham_Controller {
     @GetMapping("/getAll")
     public String getAll(Model model){
         model.addAttribute("bctp", bctp_repo.findAll());
-        return "bctp";
+        return "qldh/bctp";
     }
     @GetMapping("/add")
     public String addBctp(Model model){
         model.addAttribute("bctp",new BaoCaoThanhPham());
-        return "formbctp";
+        return "qldh/formbctp";
     }
     @GetMapping("/edit/{id}")
     public String editBctp(Model model, @PathVariable Long id){
         model.addAttribute("bctp",bctp_repo.findById(id).get());
-        return "formbctp";
+        return "qldh/formbctp";
     }
     @GetMapping("/delete/{id}")
     public String deleteBctp(@PathVariable Long id){
@@ -57,7 +57,7 @@ public class BaoCaoThanhPham_Controller {
         q.setParameter("y", kt);
         List<BaoCaoThanhPham> list= (List<BaoCaoThanhPham>) q.getResultList();
         model.addAttribute("bctp", list);
-        return "bctp";
+        return "qldh/bctp";
     }
     @PostMapping("/save")
     public String addBctp(BaoCaoThanhPham bc){

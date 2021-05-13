@@ -32,6 +32,8 @@ public class Login_Controller {
 			switch (tk.getNhanviens().getVaitro()) {
 			case "qlsx":
 				return "redirect:/btp/getAll";
+			case "qldh":
+				return "redirect:/donhang/getAll";
 			default:
 				break;
 			}

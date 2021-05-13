@@ -34,19 +34,19 @@ public class BaoCaoTonKho_Controller {
     @GetMapping("/getAll")
     public String getAll(Model model){
         model.addAttribute("bctk", bctkrepo.findAll());
-        return "bctk";
+        return "qldh/bctk";
     }
     
     @GetMapping("/add")
     public String addBctk(Model model){
         model.addAttribute("bctk",new BaoCaoTonKho());
-        return "formbctk";
+        return "qldh/formbctk";
     }
     
     @GetMapping("/edit/{id}")
     public String editBctk(Model model, @PathVariable Long id){
         model.addAttribute("bctk",bctkrepo.findById(id).get());
-        return "formbctk";
+        return "qldh/formbctk";
     }
     
     @GetMapping("/delete/{id}")
@@ -64,7 +64,7 @@ public class BaoCaoTonKho_Controller {
         q.setParameter("y", kt);
         List<BaoCaoTonKho> list= (List<BaoCaoTonKho>) q.getResultList();
         model.addAttribute("bctk", list);
-        return "bctk";
+        return "qldh/bctk";
     }
     
     @PostMapping("/save")
