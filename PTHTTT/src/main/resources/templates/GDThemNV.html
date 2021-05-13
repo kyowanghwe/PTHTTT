@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Đăng ký tài khoản</h1>
+	<form method="post" th:action="@{/nhanvien/themNV}" th:object="${nhanvien_taikhoan}">
+		<table border="0" cellpadding="10">
+				<tr>
+					<td>username:</td>
+					<td><input type="text" th:field="*{username}" /></td>
+				</tr>
+				<tr>
+					<td>password:</td>
+					<td><input type="password" th:field="*{password}" /></td>
+				</tr>
+                <tr>
+                    <td>Ten:</td>
+                    <td><input type="text" th:field="*{ten}" /></td>
+                </tr>
+                <tr>
+                    <td>Dia chi:</td>
+                    <td><input type="text" th:field="*{diaChi}" /></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                </tr>
+                <tr>
+                    <td>SDT:</td>
+                    <td><input type="text" th:field="*{phone}" /></td>
+                </tr> 
+                 <tr>
+                    <td>Vai tro:</td>
+                    <td><input type="text" th:field="*{vaitro}" /></td>
+                </tr>  
+                 <tr>
+                    <td>Luong:</td>
+                    <td><input type="text" th:field="*{luong}" /></td>
+                </tr>                                                                                 
+                <tr>
+                    <td colspan="2"><button type="submit">dang ky</button> </td>
+                </tr>
+            </table>
+	</form>
+</body>
+</html>
