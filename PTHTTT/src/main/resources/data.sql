@@ -34,11 +34,8 @@ INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `ngaybd`, `soluong`, `quytrinhs_i
 INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `ngaybd`, `soluong`, `quytrinhs_id`, `name`) VALUES ('c', '12-05-2021', '4', '1', 'ao somi');
 
 
-<<<<<<< HEAD
-=======
 #Thanh pham
 INSERT INTO `pthttt`.`thanh_pham` (`ngaykt`, `soluong`) VALUES ('12-05-2021', '4');
->>>>>>> 1bb7298b128560d6d0e9cbf6734f530e71fe2025
 INSERT INTO `pthttt`.`thanh_pham` (`gia`, `ngaykt`, `soluong`, `ten`) VALUES ('1000', '12-05-2021', '3', 'quan');
 
 /*
