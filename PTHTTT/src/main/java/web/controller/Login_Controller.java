@@ -38,6 +38,8 @@ public class Login_Controller {
 				return "redirect:/bm/getAll";
 			case "qlk":
 				return "redirect:/nvl/getAll";
+			case "qtv":
+				return "redirect:/nv/getAll";
 			default:
 				break;
 			}
