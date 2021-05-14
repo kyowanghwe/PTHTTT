@@ -144,15 +144,11 @@
 
                         <li class="treeview">
                             <a href="#">
-                                <span>Quản lí sản xuất</span>
+                                <span>Nhân viên thiết kế</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="/btp/getAll"><i class="fa fa-circle-o"></i> Bán Thành Phẩm</a></li>
-                                <li><a href="/hdn/create"><i class="fa fa-circle-o"></i> Yêu cầu Nguyên Vật Liệu</a></li>
-                            </ul>
                         </li>
 
                         <li>
@@ -173,7 +169,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Quản lí Bán Thành Phẩm
+                        Quản lí Bản Mẫu
 
                     </h1>
                     <ol class="breadcrumb">
@@ -190,7 +186,7 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-header">
-                                <a  class="btn btn-success" th:href="@{/btp/add}"> Thêm BTP</a>
+                                <a  class="btn btn-success" th:href="@{/bm/add}"> Thêm Bản Mẫu</a>
 
                                 <div class="box-tools">
                                     <form th:action="@{/btp/search}" class="input-group input-group-sm" style="width: 150px;">
@@ -209,23 +205,22 @@
                                         <th>Id</th>
                                         <th>Tên</th>
                                         <th>Mô tả</th>
-                                        <th>Ngày Bắt Đầu</th>
-                                        <th>Số Lượng</th>
-                                        <th>Quy Trình</th>  
+                                        <th>Thành Phần</th>
+                                        <th>Đơn hàng</th>
+                                        <th>Nhân viên</th>  
                                         <th>Action</th>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="item : ${btp}">
+                                        <tr th:each="item : ${bm}">
                                             <td th:text="${item.id}"></td>
-                                            <td th:text="${item.name}"></td>
+                                            <td th:text="${item.ten}"></td>
                                             <td th:text="${item.mota}"></td>
-                                            <td th:text="${item.ngayBD}"></td>
-                                            <td th:text="${item.soluong}"></td>
-                                            <td th:text="${item.quytrinhs.ten}"></td>
+                                            <td th:text="${item.thanhPhan}"></td>
+                                            <td th:text="${item.donhangs.id}"></td>
+                                            <td th:text="${item.nhanviens.ten}"></td>
                                             <td>
-                                                <a th:href="@{/btp/edit/{id}(id=${item.id})}">Sửa</a>
-      											<a th:href="@{/btp/delete/{id}(id=${item.id})}">Xóa</a>
-      											<a th:href="@{/btp/confirm/{id}(id=${item.id})}">Hoàn Thành</a>
+                                                <a th:href="@{/bm/edit/{id}(id=${item.id})}">Sửa</a>
+      											<a th:href="@{/bm/delete/{id}(id=${item.id})}">Xóa</a>    								
                                             </td>
                                         </tr>
                                         </c:forEach>

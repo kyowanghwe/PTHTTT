@@ -6,5 +6,5 @@ import web.entity.Nhanvien;
 import web.entity.TaiKhoan;
 
 public interface NhanvienRepository extends CrudRepository<Nhanvien, Long>{
-	
+
 }

@@ -1,4 +1,14 @@
 /*
+#Khach hang
+INSERT INTO `pthttt`.`khachhang` (`dia_chi`, `email`, `phone`, `ten`) VALUES ('a', 'a', 'a', 'a');
+INSERT INTO `pthttt`.`khachhang` (`dia_chi`, `email`, `phone`, `ten`) VALUES ('b', 'b', 'b', 'b');
+INSERT INTO `pthttt`.`khachhang` (`dia_chi`, `email`, `phone`, `ten`) VALUES ('c', 'c', 'c', 'c');
+
+#Don hang
+INSERT INTO `pthttt`.`donhang` (`mota`, `soluong`, `khachhangs_id`) VALUES ('a', '5', '1');
+INSERT INTO `pthttt`.`donhang` (`mota`, `soluong`, `khachhangs_id`) VALUES ('b', '10', '2');
+INSERT INTO `pthttt`.`donhang` (`mota`, `soluong`, `khachhangs_id`) VALUES ('c', '10', '3');
+
 #NVL
 INSERT INTO `pthttt`.`nvl` (`gia`, `ngay_nhap`, `so_luong`, `ten`) VALUES ('1000', '13-05-2021', '5', 'a'); 
 INSERT INTO `pthttt`.`nvl` (`gia`, `ngay_nhap`, `so_luong`, `ten`) VALUES ('2000', '13-05-2021', '10', 'b');
@@ -11,12 +21,14 @@ INSERT INTO `pthttt`.`nha_cung_cap` (`diachi`, `name`, `phone`) VALUES ('b', 'b'
 INSERT INTO `pthttt`.`nhanvien` (`dia_chi`, `email`, `luong`, `phone`, `ten`, `vaitro`) VALUES ('a', 'a', '10', '10', 'a', 'qlsx');
 INSERT INTO `pthttt`.`nhanvien` (`dia_chi`, `email`, `luong`, `phone`, `ten`, `vaitro`) VALUES ('a', 'a', '10', '10', 'a', 'qlk');
 INSERT INTO `pthttt`.`nhanvien` (`dia_chi`, `email`, `luong`, `phone`, `ten`, `vaitro`) VALUES ('a', 'a', '10', '10', 'a', 'qldh');
+INSERT INTO `pthttt`.`nhanvien` (`dia_chi`, `email`, `luong`, `phone`, `ten`, `vaitro`) VALUES ('a', 'a', '10', '10', 'a', 'nvtk');
 INSERT INTO `pthttt`.`nhanvien` (`dia_chi`, `email`, `luong`, `phone`, `ten`, `vaitro`) VALUES ('b', 'b', '20', '20', 'b', 'may');
 
 #Tai khoan
 INSERT INTO `pthttt`.`tai_khoan` (`password`, `username`, `nhanviens_id`) VALUES ('1234', 'qlsx', '1');
 INSERT INTO `pthttt`.`tai_khoan` (`password`, `username`, `nhanviens_id`) VALUES ('1234', 'qlk', '2');
 INSERT INTO `pthttt`.`tai_khoan` (`password`, `username`, `nhanviens_id`) VALUES ('1234', 'qldh', '3');
+INSERT INTO `pthttt`.`tai_khoan` (`password`, `username`, `nhanviens_id`) VALUES ('1234', 'nvtk', '4');
 
 #Bo phan
 INSERT INTO `pthttt`.`bo_phan` (`ten`, `nhanviens_id`) VALUES ('a', '1');
