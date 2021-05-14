@@ -77,7 +77,7 @@ public class BanThanhPham_Controller {
 			model.addAttribute("btp", list);
 		}
 		
-		return "btp";
+		return "qlsx/btp";
 	}
 	
 	@GetMapping("/confirm/{id}")
