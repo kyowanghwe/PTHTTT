@@ -116,7 +116,7 @@ public class HoaDonXuat_Controller {
 			hdxRepo.save(hdx);
 		}
 		else {
-			return "formHDX_error";
+			return "qlk/formHDX_error";
 		}
 		
 		return "redirect:/hdx/getAll";
