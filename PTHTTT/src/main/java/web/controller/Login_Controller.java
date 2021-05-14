@@ -36,6 +36,8 @@ public class Login_Controller {
 				return "redirect:/donhang/getAll";
 			case "nvtk":
 				return "redirect:/bm/getAll";
+			case "qlk":
+				return "redirect:/nvl/getAll";
 			default:
 				break;
 			}

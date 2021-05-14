@@ -96,6 +96,7 @@ public class BanThanhPham_Controller {
 			tp2.setSoluong(b.getSoluong());
 			tp2.setNgayKT(currentDate);
 			tp2.setTen(b.getName());
+			tp2.setGia(0);
 			
 			tpRepo.save(tp2);
 		}else {

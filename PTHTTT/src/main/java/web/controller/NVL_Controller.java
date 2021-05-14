@@ -30,19 +30,19 @@ public class NVL_Controller {
 	@GetMapping("/getAll")
 	public String getAll(Model model) {
 		model.addAttribute("nvl", nvlRepo.findAll());
-		return "nvl";
+		return "qlk/nvl";
 	}
 	
 	@GetMapping("/add")
 	public String addNVL(Model model) {
 		model.addAttribute("nvl", new NVL());
-		return "formNVL";
+		return "qlk/formNVL";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String editBTP(Model model, @PathVariable Long id) {
 		model.addAttribute("nvl", nvlRepo.findById(id).get());
-		return "formNVL";
+		return "qlk/formNVL";
 	}
 
 	@GetMapping("/delete/{id}")
@@ -53,7 +53,7 @@ public class NVL_Controller {
 	
 	@GetMapping("/search")
 	public String searchNVL(@Param("keyword") String keyword, Model model) {
-		if(keyword.length()<10) {
+		if(!keyword.matches("\\d{2}-\\d{2}-\\d{4}")) {
 			List<NVL> list = nvlRepo.findAllByTenContaining(keyword);
 			model.addAttribute("nvl", list);
 		}else {
@@ -61,7 +61,7 @@ public class NVL_Controller {
 			model.addAttribute("nvl", list);
 		}
 		
-		return "nvl";
+		return "qlk/nvl";
 	}
 	
 	@PostMapping("/save")

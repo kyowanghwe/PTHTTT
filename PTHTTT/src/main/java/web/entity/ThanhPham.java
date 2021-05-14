@@ -18,7 +18,6 @@ public class ThanhPham {
 	private String ten;
 	private int soluong;
 	
-	@Column(nullable = true)
 	private double gia;
 	
 	private String ngayKT;
