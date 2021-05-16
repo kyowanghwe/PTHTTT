@@ -1,7 +1,8 @@
-package web.controller;
+	package web.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import web.entity.BanThanhPham;
 import web.entity.HoaDonNhap;
 import web.entity.NVL;
+import web.entity.ThanhPham;
 import web.repo.HoaDonNhapRepository;
 import web.repo.NVLRepository;
 
@@ -46,6 +49,7 @@ public class HoaDonNhap_Controller {
 	
 	@PostMapping("/save")
 	public String save(HoaDonNhap hdn) {
+		hdn.setTrangThai("request");
 		hdnRepo.save(hdn);
 		return "redirect:/btp/getAll";
 	}
@@ -54,7 +58,7 @@ public class HoaDonNhap_Controller {
 // qlk
 	@GetMapping("/getAll")
 	public String getAll(Model model) {
-		model.addAttribute("hdn", hdnRepo.findAll());
+		model.addAttribute("hdn", hdnRepo.findAllByTrangThaiContaining("confirm"));
 		return "qlk/hdn";
 	}
 	
@@ -85,7 +89,7 @@ public class HoaDonNhap_Controller {
 		if(keyword_from != "" && keyword_to != "") {
 			bd = sdf2.format(sdf1.parse(keyword_from));
 			kt = sdf2.format(sdf1.parse(keyword_to));
-			Query q = entitymanager.createQuery("SELECT hdn FROM HoaDonNhap AS hdn WHERE hdn.ngayNhap BETWEEN :x AND :y");
+			Query q = entitymanager.createQuery("SELECT hdn FROM HoaDonNhap AS hdn WHERE (hdn.ngayNhap BETWEEN :x AND :y) AND hdn.trangThai = 'confirm' ");
 			q.setParameter("x", bd);
 			q.setParameter("y", kt);
 			
@@ -94,7 +98,7 @@ public class HoaDonNhap_Controller {
 		}
 		else if(keyword_from != "" && keyword_to == "") {
 			bd = sdf2.format(sdf1.parse(keyword_from));
-			Query q = entitymanager.createQuery("SELECT hdn FROM HoaDonNhap AS hdn WHERE hdn.ngayNhap >= :x ");
+			Query q = entitymanager.createQuery("SELECT hdn FROM HoaDonNhap AS hdn WHERE hdn.ngayNhap >= :x AND hdn.trangThai = 'confirm' ");
 			q.setParameter("x", bd);
 			
 			List<HoaDonNhap> list = (List<HoaDonNhap>) q.getResultList();
@@ -102,7 +106,7 @@ public class HoaDonNhap_Controller {
 		}
 		else if(keyword_from == "" && keyword_to != "") {
 			kt = sdf2.format(sdf1.parse(keyword_to));
-			Query q = entitymanager.createQuery("SELECT hdn FROM HoaDonNhap AS hdn WHERE hdn.ngayNhap <= :x ");
+			Query q = entitymanager.createQuery("SELECT hdn FROM HoaDonNhap AS hdn WHERE hdn.ngayNhap <= :x AND hdn.trangThai = 'confirm' ");
 			q.setParameter("x", kt);
 			
 			List<HoaDonNhap> list = (List<HoaDonNhap>) q.getResultList();
@@ -120,6 +124,7 @@ public class HoaDonNhap_Controller {
 		nvl.setSoLuong(nvl.getSoLuong() + hdn.getSoLuong());
 		nvlRepo.save(nvl);
 		
+		hdn.setTrangThai("confirm");
 		hdn.setTongtien(hdn.getSoLuong()*nvl.getGia());
 		hdnRepo.save(hdn);
 		return "redirect:/hdn/getAll";
@@ -127,6 +132,9 @@ public class HoaDonNhap_Controller {
 	
 	@PostMapping("/save_edit")
 	public String editHDN(HoaDonNhap hdn) {
+		NVL nvl = new NVL();
+		nvl = nvlRepo.findById(hdn.getNvls().getId()).get();
+		hdn.setTongtien(hdn.getSoLuong()*nvl.getGia());
 		hdnRepo.save(hdn);
 		return "redirect:/hdn/getAll";
 	}

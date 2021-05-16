@@ -21,24 +21,36 @@ public class HoaDonNhap {
 	private String ngayNhap;
 	private int soLuong;
 	private String donvi;
+	private String trangThai;
 	
 	@Column(nullable = true)
 	private double tongtien;
 	
-	public HoaDonNhap(Long id, String ngayNhap, int soLuong, String donvi, double tongtien, NhaCungCap nhacungcaps,
-			NVL nvls) {
+	public HoaDonNhap(Long id, String ngayNhap, int soLuong, String donvi, String trangThai, double tongtien,
+			NhaCungCap nhacungcaps, NVL nvls) {
 		this.id = id;
 		this.ngayNhap = ngayNhap;
 		this.soLuong = soLuong;
 		this.donvi = donvi;
+		this.trangThai = trangThai;
 		this.tongtien = tongtien;
 		this.nhacungcaps = nhacungcaps;
 		this.nvls = nvls;
 	}
-	
-	
+
+
 	public HoaDonNhap() {
 
+	}
+
+
+	public String getTrangThai() {
+		return trangThai;
+	}
+
+
+	public void setTrangThai(String trangThai) {
+		this.trangThai = trangThai;
 	}
 
 

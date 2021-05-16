@@ -124,6 +124,9 @@ public class HoaDonXuat_Controller {
 	
 	@PostMapping("/save_edit")
 	public String editHDX(HoaDonXuat hdx) {
+		NVL nvl = new NVL();
+		nvl = nvlRepo.findById(hdx.getNvls().getId()).get();
+		hdx.setTongtien(hdx.getSoLuong()*nvl.getGia());
 		hdxRepo.save(hdx);
 		return "redirect:/hdx/getAll";
 	}

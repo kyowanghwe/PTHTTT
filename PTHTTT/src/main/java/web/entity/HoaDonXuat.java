@@ -21,20 +21,32 @@ public class HoaDonXuat {
 	private double tongtien;
 	private int soLuong;
 	private String donvi;
+	private String trangThai;
 	
-	
-	public HoaDonXuat(Long id, String ngayXuat, double tongtien, int soLuong, String donvi, BoPhan bophans, NVL nvls) {
+	public HoaDonXuat(Long id, String ngayXuat, double tongtien, int soLuong, String donvi, String trangThai,
+			BoPhan bophans, NVL nvls) {
 		this.id = id;
 		this.ngayXuat = ngayXuat;
 		this.tongtien = tongtien;
 		this.soLuong = soLuong;
 		this.donvi = donvi;
+		this.trangThai = trangThai;
 		this.bophans = bophans;
 		this.nvls = nvls;
 	}
-	
+
 	public HoaDonXuat() {
 	
+	}
+	
+	
+
+	public String getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(String trangThai) {
+		this.trangThai = trangThai;
 	}
 
 	public Long getId() {

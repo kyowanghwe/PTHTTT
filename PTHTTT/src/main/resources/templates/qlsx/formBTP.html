@@ -8,11 +8,15 @@
 	<form method="post" th:action="@{/btp/save}" th:object="${btp}">
 		<table border="0" cellpadding="10">
 				<td><input type="hidden" th:field="*{id}" /></td>
-				
+				<tr>
+                    <td>Ten:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                </tr>
                 <tr>
                     <td>Mo ta:</td>
                     <td><input type="text" th:field="*{mota}" /></td>
                 </tr>
+                
                 <tr>
                     <td>Ngay BD:</td>
                     <td><input type="text" th:field="*{ngayBD}" /></td>

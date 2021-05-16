@@ -52,6 +52,28 @@ INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `ngaybd`, `soluong`, `quytrinhs_i
 INSERT INTO `pthttt`.`thanh_pham` (`ngaykt`, `soluong`) VALUES ('12-05-2021', '4');
 INSERT INTO `pthttt`.`thanh_pham` (`gia`, `ngaykt`, `soluong`, `ten`) VALUES ('1000', '12-05-2021', '3', 'quan');
 
+
+#Hoa Don Nhap
+INSERT INTO `pthttt`.`hoa_don_nhap` (`donvi`, `ngay_nhap`, `so_luong`, `tongtien`, `nhacungcaps_id`, `nvls_id`, `trang_thai`)
+	VALUES ('cai', '12-05-2021', '10', '10000', '1', '1', 'confirm');
+
+INSERT INTO `pthttt`.`hoa_don_nhap` (`donvi`, `ngay_nhap`, `so_luong`, `tongtien`, `nhacungcaps_id`, `nvls_id`, `trang_thai`)
+	VALUES ('cai', '12-05-2021', '15', '20000', '1', '2', 'confirm');
+
+INSERT INTO `pthttt`.`hoa_don_nhap` (`donvi`, `ngay_nhap`, `so_luong`, `tongtien`, `nhacungcaps_id`, `nvls_id`, `trang_thai`)
+	VALUES ('cai', '', '30', '30000', '2', '1', 'request');
+    
+
+#Hoa Don Xuat
+INSERT INTO `pthttt`.`hoa_don_xuat` (`donvi`, `ngay_xuat`, `so_luong`, `tongtien`, `bophans_id`, `nvls_id`, `trang_thai`)
+	VALUES ('cai', '13-05-2021', '5', '5000', '2', '1', 'confirm');
+
+INSERT INTO `pthttt`.`hoa_don_xuat` (`donvi`, `ngay_xuat`, `so_luong`, `tongtien`, `bophans_id`, `nvls_id`, `trang_thai`)
+	VALUES ('cai', '14-05-2021', '5', '10000', '1', '2', 'confirm');
+
+INSERT INTO `pthttt`.`hoa_don_xuat` (`donvi`, `ngay_xuat`, `so_luong`, `tongtien`, `bophans_id`, `nvls_id`, `trang_thai`)
+
+	VALUES ('cai', '', '5', '10000', '2', '2', 'request');
 /*
 select *from pthttt.ban_thanh_pham b, pthttt.quy_trinh q
 where b.quytrinhs_id = q.id
