@@ -43,7 +43,7 @@ public class HoaDonXuat_Controller {
 	
 	@GetMapping("/getAll")
 	public String getAll(Model model) {
-		model.addAttribute("hdx", hdxRepo.findAll());
+		model.addAttribute("hdx", hdxRepo.findAllByTrangThaiContaining("confirm"));
 		return "qlk/hdx";
 	}
 
