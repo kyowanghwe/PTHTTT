@@ -142,25 +142,31 @@
           </a>
         </li>
 
+
         <li class="treeview">
-                    <a href="#">
-                        <span>Quản lí điều hành</span>
-                        <span class="pull-right-container">
+          <a href="#">
+            <span>Quản lí điều hành</span>
+            <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/donhang/getAll"><i class="fa fa-circle-o"></i> Xem đơn hàng</a></li>
-                        <li><a href="/bctp/getAll"><i class="fa fa-circle-o"></i> Báo Cáo Thành Phẩm</a></li>
-                        <li><a href="/bctk/getAll"><i class="fa fa-circle-o"></i> Báo Cáo Tồn Kho</a></li>
-                    </ul>
-                </li>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/donhang/getAll"><i class="fa fa-circle-o"></i> Xem đơn hàng</a></li>
+            <li><a href="/dieuhanh/nhapkho"><i class="fa fa-circle-o"></i> Yêu cầu nhập</a></li>
+            <li><a href="/dieuhanh/xuatkho"><i class="fa fa-circle-o"></i> Yêu cầu xuất</a></li>
+            <li><a href="/bctp/getAll"><i class="fa fa-circle-o"></i> Báo Cáo Thành Phẩm</a></li>
+            <li><a href="/bctk/getAll"><i class="fa fa-circle-o"></i> Báo Cáo Tồn Kho</a></li>
+          </ul>
+        </li>
 
-        		<li>
-                            <a href="/tk/logout">
-                                <i></i> <span>Logout</span>                            
-                            </a>
-                </li>
+        <li>
+          <a href="">
+            <i class="fa fa-th"></i> <span>Widgets</span>
+            <span class="pull-right-container">
+                                    <small class="label pull-right bg-green">Hot</small>
+                                </span>
+          </a>
+        </li>
 
       </ul>
     </section>
@@ -174,7 +180,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Quản lí Room
+        Quản lí điều hành
 
       </h1>
       <ol class="breadcrumb">
@@ -191,12 +197,14 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <a  class="btn btn-success" th:href="@{/bctk/add}"> Thêm Đơn hàng</a>
+            <a  class="btn btn-success" th:href="@{/bctk/add}"> Thêm báo cáo</a>
 
             <div class="box-tools">
-              <form th:action="@{/bctk/search}" class="input-group input-group-sm" style="width: 150px;">
-                <input type="text" name="ngaybd" class="form-control pull-right" placeholder="ngày bắt đầu" >
-                <input type="text" name="ngaykt" class="form-control pull-right" placeholder="ngày kết thúc" >
+              <form th:action="@{/bctk/search}" class="input-group input-group-sm" style="width: 650px;">
+                Ngày Bắt Đầu
+                <input type="date" name="keyword_from" class="form-control pull-right" placeholder="dd-MM-yyyy" style = "margin-left: 10px; margin-right: 10px">
+                Ngày Kết Thúc
+                <input type="date" name="keyword_to" class="form-control pull-right" placeholder="dd-MM-yyyy" style = "margin-left: 10px; margin-right: 10px">
 
                 <div class="input-group-btn">
                   <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>

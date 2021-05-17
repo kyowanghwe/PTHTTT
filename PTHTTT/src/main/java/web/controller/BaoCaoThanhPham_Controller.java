@@ -48,17 +48,24 @@ public class BaoCaoThanhPham_Controller {
         bctp_repo.deleteById(id);
         return "redirect:/bctp/getAll";
     }
+
     @GetMapping("/search")
-    public String searchDonhang(@Param("keyword") String ngaybd, String ngaykt, Model model) throws ParseException {
-        Date bd=new SimpleDateFormat("yyyy-MM-dd").parse(ngaybd);
-        Date kt=new SimpleDateFormat("yyyy-MM-dd").parse(ngaykt);
-        Query q= entitymanager.createQuery("select bc from BaoCaoThanhPham as bc join bc.thanhphams as tp where tp.ngayKT between :x and :y");
-        q.setParameter("x", bd);
-        q.setParameter("y", kt);
-        List<BaoCaoThanhPham> list= (List<BaoCaoThanhPham>) q.getResultList();
-        model.addAttribute("bctp", list);
+    public String searchBctp(@Param("keyword_from") String keyword_from, @Param("keyword_to") String keyword_to, Model model) throws ParseException {
+        if(keyword_from!="" && keyword_to!="")
+        {
+            Date bd=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_from);
+            Date kt=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_to);
+            Query q= entitymanager.createQuery("select bc from BaoCaoThanhPham as bc join bc.thanhphams as tp where tp.ngayKT between :x and :y");
+            q.setParameter("x", bd);
+            q.setParameter("y", kt);
+            List<BaoCaoThanhPham> list= (List<BaoCaoThanhPham>) q.getResultList();
+            model.addAttribute("qldh/bctp", list);
+        }else{
+            return "redirect:/bctp/getAll";
+        }
         return "qldh/bctp";
     }
+    
     @PostMapping("/save")
     public String addBctp(BaoCaoThanhPham bc){
         bctp_repo.save(bc);

@@ -55,15 +55,21 @@ public class BaoCaoTonKho_Controller {
         return "redirect:/bctk/getAll";
     }
     
+    
     @GetMapping("/search")
-    public String searchBctk(@Param("keyword") String ngaybd, String ngaykt, Model model) throws ParseException {
-        Date bd=new SimpleDateFormat("yyyy-MM-dd").parse(ngaybd);
-        Date kt=new SimpleDateFormat("yyyy-MM-dd").parse(ngaykt);
-        Query q= entitymanager.createQuery("select bc from BaoCaoTonKho as bc join bc.nvls as nvl where nvl.ngayNhap between :x and :y");
-        q.setParameter("x", bd);
-        q.setParameter("y", kt);
-        List<BaoCaoTonKho> list= (List<BaoCaoTonKho>) q.getResultList();
-        model.addAttribute("bctk", list);
+    public String searchBctk(@Param("keyword_from") String keyword_from, @Param("keyword_to") String keyword_to, Model model) throws ParseException {
+        if(keyword_from!="" && keyword_to!="")
+        {
+            Date bd=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_from);
+            Date kt=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_to);
+            Query q= entitymanager.createQuery("select bc from BaoCaoTonKho as bc join bc.nvls as nvl where nvl.ngayNhap between :x and :y");
+            q.setParameter("x", bd);
+            q.setParameter("y", kt);
+            List<BaoCaoTonKho> list= (List<BaoCaoTonKho>) q.getResultList();
+            model.addAttribute("qldh/bctk", list);
+        }else{
+            return "redirect:/bctk/getAll";
+        }
         return "qldh/bctk";
     }
     

@@ -84,33 +84,31 @@ public class QLDieuHanh_Controller {
         nvlrepo.save(nvl);
         return "redirect:/dieuhanh/xuatkho";
     }
+    
+    //tim kiem hdx theo ten nvl
     @GetMapping("/searchx")
-    public String searchXK(@Param("keyword_from") String keyword_from, @Param("keyword_to") String keyword_to, Model model) throws ParseException {
-        if(keyword_from!="" && keyword_to!="")
-            {
-            Date bd=new SimpleDateFormat("dd-MM-yyyy").parse(keyword_from);
-            Date kt=new SimpleDateFormat("dd-MM-yyyy").parse(keyword_to);
-            Query q= entitymanager.createQuery("select hdx from HoaDonXuat as hdx where (hdx.ngayXuat between :x and :y) and hdx.trangThai = 'request'");
-            q.setParameter("x", bd);
-            q.setParameter("y", kt);
+    public String searchXK(@Param("keyword") String keyword,  Model model)  {
+        if(keyword!="" )
+        {
+            Query q= entitymanager.createQuery("select hdx from HoaDonXuat as hdx join hdx.nvls as nvl where nvl.ten = :x");
+            q.setParameter("x", keyword);
             List<HoaDonXuat> list= (List<HoaDonXuat>) q.getResultList();
             model.addAttribute("xuatkho", list);
         }
         else{
-                return "redirect:/dieuhanh/xuatkho";
-            }
+            return "redirect:/dieuhanh/xuatkho";
+        }
 
         return "qldh/xuatkho";
     }
+    
+    //tim kiem hdn theo ten nvl
     @GetMapping("/searchn")
-    public String searchNK(@Param("keyword_from") String keyword_from, @Param("keyword_to") String keyword_to, Model model) throws ParseException {
-        if(keyword_from!="" && keyword_to!="")
+    public String searchNK(@Param("keyword") String keyword,  Model model)  {
+        if(keyword!="" )
         {
-            Date bd=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_from);
-            Date kt=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_to);
-            Query q= entitymanager.createQuery("select hdn from HoaDonNhap as hdn where (hdn.ngayNhap between :x and :y) and hdn.trangThai = 'request'");
-            q.setParameter("x", bd);
-            q.setParameter("y", kt);
+            Query q= entitymanager.createQuery("select hdn from HoaDonNhap as hdn join hdn.nvls as nvl where nvl.ten = :x");
+            q.setParameter("x", keyword);
             List<HoaDonNhap> list= (List<HoaDonNhap>) q.getResultList();
             model.addAttribute("nhapkho", list);
         }
