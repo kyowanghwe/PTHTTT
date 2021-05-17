@@ -53,7 +53,7 @@ public class BanMau_Controller {
 	
 	@GetMapping("/edit/{id}")
 	public String edit(Model model, @PathVariable Long id) {
-		model.addAttribute("btp", bmRepo.findById(id).get());
+		model.addAttribute("bm", bmRepo.findById(id).get());
 		return "nvtk/formBanmau";
 	}
 
