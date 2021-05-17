@@ -87,22 +87,22 @@ INSERT INTO `pthttt`.`quy_trinh` (`maymoc`, `ten`, `bophans_id`) VALUES ('Không
 
 
 #Ban thanh pham
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Sản xuất cắt và đánh số đồng bộ quần áo đá bóng theo bó', '16-01-2021', '20', '1');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Sản xuất cắt và đánh số đồng bộ váy hoa mùa hè theo bó', '15-01-2021', '50', '1');
-INSERT INTO `pthttt`.`ban_thanh_pham` ( `mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Sản xuất cắt và đánh số đồng bộ áo thun cộc theo bó', '15-01-2021', '20', '1');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Sản xuất cắt và đánh số đồng bộ quần Jeans theo bó', '15-01-2021', '60', '1');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'May bộ quần áo đá bóng', '27-01-2021', '50', '2');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'May váy hoa mùa hè', '27-01-2021', '70', '2');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'May áo thun cộc', '27-01-2021', '30', '2');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'May quần Jeans', '30-01-2021', '30', '2');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Kiểm tra chất lượng quần Jeans', '15-03-2021', '30', '3');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Kiểm tra chất lược váy hoa mùa hè', '15-03-2021', '40', '3');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Đóng khuy quần Jeans', '01-04-2021', '30', '4');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Kiểm kim áo thun cộc', '07-04-2021', '10', '5');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Kiểm kim bộ quần áo đá bóng', '10-04-2021', '60', '5');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Đóng gói áo thun cộc ', '20-04-2021', '20', '6');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Đóng gói bộ quần áo', '29-04-2021', '40', '6');
-INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Đóng gói quần Jeans', '03-05-2021', '50', '6');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Quần áo đá bóng', '16-01-2021', '20', '1');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Váy hoa mùa hè', '15-01-2021', '50', '1');
+INSERT INTO `pthttt`.`ban_thanh_pham` ( `mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Áo thun cộc', '15-01-2021', '20', '1');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Quần Jeans', '15-01-2021', '60', '1');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Bộ quần áo đá bóng', '27-01-2021', '50', '2');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Váy hoa mùa hè', '27-01-2021', '70', '2');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Áo thun cộc', '27-01-2021', '30', '2');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Quần Jeans', '30-01-2021', '30', '2');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Quần Jeans', '15-03-2021', '30', '3');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Váy hoa mùa hè', '15-03-2021', '40', '3');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Quần Jeans', '01-04-2021', '30', '4');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Áo thun cộc', '07-04-2021', '10', '5');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Bộ quần áo đá bóng', '10-04-2021', '60', '5');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Áo thun cộc ', '20-04-2021', '20', '6');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Bộ quần áo', '29-04-2021', '40', '6');
+INSERT INTO `pthttt`.`ban_thanh_pham` (`mota`, `name`, `ngaybd`, `soluong`, `quytrinhs_id`) VALUES ('Đang thực hiện', 'Quần Jeans', '03-05-2021', '50', '6');
 
 
 #Thanh pham
