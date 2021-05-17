@@ -207,7 +207,7 @@
               <th>Nguyên vật liệu</th>
               <th>Số lượng nhập</th>
               <th>Nhà cung cấp</th>
-              <th>Ngày nhập</th>
+              <th>Ngày tạo</th>
               <th>Đơn vị</th>
               <th>Tổng tiền</th>
               <th>Trạng thái</th>
@@ -225,7 +225,7 @@
                 <td th:text="${item.trangThai}"></td>
                 <td>
                   <a th:href="@{/dieuhanh/nhapkho/{id}(id=${item.id})}">confirm</a>
-                  <a th:href="@{/dieuhanh/delete/{id}(id=${item.id})}">Xóa</a>
+                  <a th:href="@{/dieuhanh/deletenk/{id}(id=${item.id})}">Xóa</a>
                 </td>
               </tr>
               </c:forEach>

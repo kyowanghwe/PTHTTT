@@ -51,19 +51,42 @@ public class BaoCaoThanhPham_Controller {
 
     @GetMapping("/search")
     public String searchBctp(@Param("keyword_from") String keyword_from, @Param("keyword_to") String keyword_to, Model model) throws ParseException {
-        if(keyword_from!="" && keyword_to!="")
-        {
-            Date bd=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_from);
-            Date kt=new SimpleDateFormat("yyyy-MM-dd").parse(keyword_to);
+        // hql with relationship
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MM-yyyy");
+        String bd, kt;
+        if(keyword_from != "" && keyword_to != "") {
+            bd = sdf2.format(sdf1.parse(keyword_from));
+            kt = sdf2.format(sdf1.parse(keyword_to));
             Query q= entitymanager.createQuery("select bc from BaoCaoThanhPham as bc join bc.thanhphams as tp where tp.ngayKT between :x and :y");
             q.setParameter("x", bd);
             q.setParameter("y", kt);
-            List<BaoCaoThanhPham> list= (List<BaoCaoThanhPham>) q.getResultList();
-            model.addAttribute("qldh/bctp", list);
-        }else{
-            return "redirect:/bctp/getAll";
+
+            List<BaoCaoThanhPham> list = (List<BaoCaoThanhPham>) q.getResultList();
+            model.addAttribute("bctp", list);
         }
+        else if(keyword_from != "" && keyword_to == "") {
+            bd = sdf2.format(sdf1.parse(keyword_from));
+            Query q= entitymanager.createQuery("select bc from BaoCaoThanhPham as bc join bc.thanhphams as tp where tp.ngayKT >= :x");
+            q.setParameter("x", bd);
+
+            List<BaoCaoThanhPham> list = (List<BaoCaoThanhPham>) q.getResultList();
+            model.addAttribute("bctp", list);
+        }
+        else if(keyword_from == "" && keyword_to != "") {
+            kt = sdf2.format(sdf1.parse(keyword_to));
+            Query q= entitymanager.createQuery("select bc from BaoCaoThanhPham as bc join bc.thanhphams as tp where tp.ngayKT >= :x");
+            q.setParameter("x", kt);
+
+            List<BaoCaoThanhPham> list = (List<BaoCaoThanhPham>) q.getResultList();
+            model.addAttribute("bctp", list);
+        }
+        else
+            return "redirect:/bctp/getAll";
+
+
         return "qldh/bctp";
+
     }
     
     @PostMapping("/save")

@@ -62,6 +62,12 @@ public class QLDieuHanh_Controller {
         return "redirect:/dieuhanh/nhapkho";
     }
     
+    @GetMapping("/deletenk/{id}")
+    public String deleteNk(@PathVariable Long id){
+        hdnrepo.deleteById(id);
+        return "redirect:/dieuhanh/nhapkho";
+    }
+    
     @GetMapping("/xuatkho")
     public String HDXuatKho(Model model) {
         model.addAttribute("xuatkho", hdxrepo.findAllByTrangThaiContaining("request"));
@@ -81,7 +87,16 @@ public class QLDieuHanh_Controller {
         bctkrepo.save(bc);
         nvl.setSoLuong(nvl.getSoLuong()-hdx.getSoLuong());
         hdx.setTrangThai("confirm");
+        Date date = new Date();
+        String currentDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+        hdx.setNgayXuat(currentDate);
         nvlrepo.save(nvl);
+        return "redirect:/dieuhanh/xuatkho";
+    }
+    
+    @GetMapping("/deletexk/{id}")
+    public String deleteXk(@PathVariable Long id){
+        hdxrepo.deleteById(id);
         return "redirect:/dieuhanh/xuatkho";
     }
     

@@ -207,9 +207,10 @@
               <th>Nguyên vật liệu</th>
               <th>Số lượng nhập</th>
               <th>Bộ phận</th>
-              <th>Ngày xuất</th>
+              <th>Ngày tạo</th>
               <th>Đơn vị</th>
               <th>Tổng tiền</th>
+              <th>Trạng thái</th>
               <th>Action</th>
               </thead>
               <tbody>
@@ -221,9 +222,11 @@
                 <td th:text="${item.ngayXuat}"></td>
                 <td th:text="${item.donvi}"></td>
                 <td th:text="${item.tongtien}"></td>
+                <td th:text="${item.trangThai}"></td>
+
                 <td>
                   <a th:href="@{/dieuhanh/xuatkho/{id}(id=${item.id})}">confirm</a>
-                  <a th:href="@{/dieuhanh/delete/{id}(id=${item.id})}">Xóa</a>
+                  <a th:href="@{/dieuhanh/deletexk/{id}(id=${item.id})}">Xóa</a>
                 </td>
               </tr>
               </c:forEach>

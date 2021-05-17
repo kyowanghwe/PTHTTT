@@ -49,7 +49,12 @@ public class HoaDonNhap_Controller {
 	
 	@PostMapping("/save")
 	public String save(HoaDonNhap hdn) {
+		Date date = new Date();
+		String currentDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+		
 		hdn.setTrangThai("request");
+		hdn.setNgayNhap(currentDate);
+		
 		hdnRepo.save(hdn);
 		return "redirect:/btp/getAll";
 	}
@@ -117,14 +122,22 @@ public class HoaDonNhap_Controller {
 		return "qlk/hdn";
 	}
 	
+//	@PostMapping("/save_add")
+//	public String addHDN(HoaDonNhap hdn) {
+//		NVL nvl = new NVL();
+//		nvl = nvlRepo.findById(hdn.getNvls().getId()).get();
+//		nvl.setSoLuong(nvl.getSoLuong() + hdn.getSoLuong());
+//		nvlRepo.save(nvl);
+//		
+//		hdn.setTrangThai("confirm");
+//		hdn.setTongtien(hdn.getSoLuong()*nvl.getGia());
+//		hdnRepo.save(hdn);
+//		return "redirect:/hdn/getAll";
+//	}
 	@PostMapping("/save_add")
 	public String addHDN(HoaDonNhap hdn) {
-		NVL nvl = new NVL();
-		nvl = nvlRepo.findById(hdn.getNvls().getId()).get();
-		nvl.setSoLuong(nvl.getSoLuong() + hdn.getSoLuong());
-		nvlRepo.save(nvl);
-		
-		hdn.setTrangThai("confirm");
+		NVL nvl = nvlRepo.findById(hdn.getNvls().getId()).get();
+		hdn.setTrangThai("request");
 		hdn.setTongtien(hdn.getSoLuong()*nvl.getGia());
 		hdnRepo.save(hdn);
 		return "redirect:/hdn/getAll";
@@ -132,8 +145,7 @@ public class HoaDonNhap_Controller {
 	
 	@PostMapping("/save_edit")
 	public String editHDN(HoaDonNhap hdn) {
-		NVL nvl = new NVL();
-		nvl = nvlRepo.findById(hdn.getNvls().getId()).get();
+		NVL nvl = nvlRepo.findById(hdn.getNvls().getId()).get();
 		hdn.setTongtien(hdn.getSoLuong()*nvl.getGia());
 		hdnRepo.save(hdn);
 		return "redirect:/hdn/getAll";
